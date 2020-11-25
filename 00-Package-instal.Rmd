@@ -1,0 +1,96 @@
+---
+title: "R Notebook"
+output: html_notebook
+ "
+ ]
+ 
+"
+---
+title: "metabarcoding with dada2: environment installation"
+output: html_notebook
+---
+
+
+# update VM configuration
+``` {bash}
+sudo apt-get update -y 
+sudo apt-get install -y libbz2-dev
+sudo apt-get install -y liblzma-dev
+```
+
+
+#package install
+
+Following instruction on https://benjjneb.github.io/dada2/dada-installation.html
+
+```{r package install}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install(version = '3.11')
+BiocManager::install("dada2", version = "3.11")
+```
+"---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+```{r}
+BiocManager::install("phangorn")
+```
+
+```{r}
+BiocManager::install("DECIPHER")
+```
+
+```{r}
+install.packages("gridExtra")
+```
+
+```{r}
+.cran_packages <- c( "shiny","miniUI", "caret", "pls", "e1071", "ggplot2", "randomForest", "dplyr", "ggrepel", "nlme", "devtools",
+                  "reshape2", "PMA", "structSSI", "ade4",
+                  "ggnetwork", "intergraph", "scales")
+.github_packages <- c("jfukuyama/phyloseqGraphTest")
+.bioc_packages <- c("genefilter", "impute")
+```
+
+```{r}
+install.packages(.cran_packages)
+devtools::install_github(.github_packages)
+BiocManager::install(.bioc_packages)
+library(vegan)
+```
+
+```{r}
+BiocManager::install("DESeq2")
+```
+
+```{r}
+library(devtools)
+install_local("./structSSI_1.1.1.tar.gz")
+```
+
+```{bash}
+wget https://cran.r-project.org/src/contrib/Archive/structSSI/structSSI_1.1.1.tar.gz
+```
+
+```{r}
+install.packages("usethis")
+```
+
+```{r}
+library(usethis)
+use_git_config(user.name = "Masmoudi-FZ", user.email = "fatizohra.masmoudi@gmail.com")
+```
+
